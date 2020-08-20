@@ -30,21 +30,21 @@ from config import ASSET
 ################################################################
 
 # Constant
-TITLE = "作品タイトル"
-MAJOR, MINOR, MICRO = 0, 0, 1
-COPY = "コピィ"
-ONELINE = "一行説明"
-OUTLINE = "あらすじ"
-THEME = "テーマ"
-GENRE = "ジャンル"
-TARGET = "ターゲット（年代）"
-SIZE = "規定サイズ"
-CONTEST_INFO = "コンテスト情報"
-CAUTION = "注意事項"
-NOTE = "備考"
+TITLE = "ミントの匂いと雨の痕"
+MAJOR, MINOR, MICRO = 0, 1, 0
+COPY = "あの夏の出来事は、一生消えない"
+ONELINE = "約8000字の青春恋愛短編。あの夏、豪雨の中でキスをしたお姉さんは自殺した"
+OUTLINE = "真面目で良家のお嬢さんという感じだった近所の塾の先生が、ある夏の豪雨のバス停で、キスをした。そのお姉さんが自殺したと聞いた"
+THEME = "理解できなかったことが思い出として刻まれ続ける"
+GENRE = "恋愛／青春／文学"
+TARGET = "10-30years"
+SIZE = "8K"
+CONTEST_INFO = "妄想コンテスト「ひと夏の思い出」"
+CAUTION = ""
+NOTE = ""
 SITES = ["エブリスタ", "小説家になろう", "ノベルアッププラス", "カクヨム"]
-TAGS = ["ドラマ",]
-RELEASED = (1, 1, 2020)
+TAGS = ["ヒューマンドラマ", "恋愛", "片思い", "年上の女"]
+RELEASED = (8, 20, 2020)
 
 
 # Episodes
@@ -58,6 +58,41 @@ def ch_main(w: World):
             )
 
 
+# Notes
+def writer_note(w: World):
+    return w.writer_note("覚書",
+            )
+
+def plot_note(w: World):
+    return w.writer_note("プロットメモ",
+            )
+
+def chara_note(w: World):
+    return w.writer_note("人物メモ",
+            "・主人公の男子",
+            "学生時代に近所の真面目そうなお姉さんに豪雨の中でされたキスが忘れられない",
+            "・自殺した近所の塾講師のお姉さん",
+            "評判もよく、なぜ自殺したのか理由がわからない、という話の女性",
+            "・主人公の家族。母親と父親、それに妹か何か。祖父母も",
+            "・自殺したお姉さんを知る友人か男友達か",
+            )
+
+def theme_note(w: World):
+    return w.writer_note("テーマメモ",
+            "見かけによらない、意外な内面を見せつけられた時に脳が理解することを拒否する",
+            )
+
+def motif_note(w: World):
+    return w.writer_note("モチーフメモ",
+            "自殺",
+            "ゲリラ豪雨", "夏", "入道雲",
+            "夕立",
+            "塾の先生",
+            "年上の女性",
+            )
+
+
+# Main
 def main(): # pragma: no cover
     w = World.create_world(f"{TITLE}")
     w.config.set_version(MAJOR, MINOR, MICRO)
@@ -79,6 +114,11 @@ def main(): # pragma: no cover
     w.config.set_taginfos(*TAGS)
     w.config.set_released(*RELEASED)
     return w.run(
+            writer_note(w),
+            plot_note(w),
+            chara_note(w),
+            theme_note(w),
+            motif_note(w),
             ch_main(w),
             )
 
