@@ -55,6 +55,9 @@ def ep_xxx(w: World):
 
 def ch_main(w: World):
     return w.chapter('main',
+            w.plot_note("夏場の豪雨を目にして$natsuはあの夏のことを思い出す"),
+            w.plot_note(""),
+            # NOTE
             )
 
 
@@ -80,7 +83,6 @@ def plot_note(w: World):
             "ミントティーを淹れてきた妻",
             "それを飲んだ夫に「あのときのキスの味？」と、知らないはずなのに尋ねる",
             "それは単なる主人公の勘違いだった",
-            "",
             )
 
 def chara_note(w: World):
