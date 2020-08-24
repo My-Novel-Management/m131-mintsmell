@@ -31,7 +31,7 @@ from config import ASSET
 
 # Constant
 TITLE = "ミントの匂いと雨の痕"
-MAJOR, MINOR, MICRO = 0, 1, 0
+MAJOR, MINOR, MICRO = 0, 3, 0
 COPY = "あの夏の出来事は、一生消えない"
 ONELINE = "約8000字の青春恋愛短編。あの夏、豪雨の中でキスをしたお姉さんは自殺した"
 OUTLINE = "真面目で良家のお嬢さんという感じだった近所の塾の先生が、ある夏の豪雨のバス停で、キスをした。そのお姉さんが自殺したと聞いた"
@@ -48,36 +48,60 @@ RELEASED = (8, 20, 2020)
 
 
 # Episodes
-def ep_xxx(w: World):
-    return w.episode('episode_title',
-            outline="description")
+def ep_a_summerday(w: World):
+    return w.episode("ある夏の日",
+            w.plot_setup("結婚して三年目の夫婦"),
+            w.plot_setup("田舎の複合商業施設内の服屋を経営している"),
+            w.plot_setup("刺激のない日々を送っている"),
+            w.plot_setup("夏になるといつも妻に黙って田舎に旅行で出かける"),
+            w.plot_turnpoint("庭のミントを掃除していてあの夏のことを思い出す"),
+            w.plot_note("夏場の豪雨を目にして$natsuはあの夏のことを思い出す"),
+            )
+
+def ep_summer_memory(w: World):
+    return w.episode('あの夏の出来事',
+            w.plot_develop("$natsuは妻に夏の出来事を語る（嘘を混ぜて）"),
+            w.plot_develop("中学の夏、塾のお姉さんとキスをしたことがショックだったと話す"),
+            w.plot_note("豪雨のバス停、近所で塾をやっていたお姉さんと二人切りになった"),
+            w.plot_note("お姉さんは「キスしたことある？」と聞いてきて、キスをしてきた"),
+            w.plot_note("それは全然知らない大人のキスで、目の前が真っ白になった"),
+            w.plot_develop("そのお姉さんは自殺してしまった"),
+            w.plot_note("けれどそれから一週間後にお姉さんは自殺した"),
+            w.plot_note("近所の人たちは「そんな子じゃなかったのに」と言った"),
+            w.plot_develop("その話を妻にすると、彼女は「色々と噂があった」と前置きし、",
+                "その「いろいろ」を語ってくれた"),
+            w.plot_note("妻はミントティーを出して、全て分かっているようなことを言う"),
+            "田舎の町特有の情報網",
+            w.plot_develop("大人たちは誰も彼女の本当の姿を理解していなかったんじゃないか、と言い出す妻"),
+            w.plot_note("妻から色々な彼女に関する噂を語られる"),
+            w.plot_note("それは全然知らない面ばかりだったが、妻は全部ただの噂だと"),
+            w.plot_note("「本当の姿なんて大切な人にすら見せないんだから」と言われる"),
+            w.plot_turnpoint("妻は当時の噂を知っていたと告白した"),
+            w.plot_note("妻は「ところでその日、バスに乗ってどこに行こうとしてたの？」と尋ねる"),
+            "近所の女性とバス停で出会ったならどっちかがバスに乗るはずだった、ということ",
+            )
+
+def ep_lost_summer(w: World):
+    return w.episode("夏よ、さようなら",
+            w.plot_resolve("$natsuは休日に一人、廃屋を訪れる"),
+            w.plot_resolve("廃屋には$minaに女装ごっこをさせられた衣装が隠してあり、それを時折虫干ししていた"),
+            w.plot_note("その廃屋には、彼女の宝物が隠されている"),
+            w.plot_note("$natsuは彼女の服を取り出して、それを毎年虫干しする"),
+            w.plot_note("夏のあの日、お姉さんと一緒にいた$natsuは女装をさせられていた"),
+            w.plot_note("それがお姉さんの隠れた趣味だった"),
+            w.plot_note("結婚すると言っていたお姉さんはその趣味を諦めることになると悩んでいた"),
+            w.plot_resolve("$natsuは当時$minaと女装ごっこをしていた秘密（セーラー服）を燃やして処分した"),
+            w.plot_note("今でも誰にも見せずに、ときおり女装をしている"),
+            w.plot_note("あの夏のミントの匂いを、思い出すために"),
+            w.plot_note("$natsuは彼女の「本当」を隠すために服を燃やした"),
+            )
 
 
 def ch_main(w: World):
     return w.chapter('main',
-            w.plot_note("夏場の豪雨を目にして$natsuはあの夏のことを思い出す"),
-            w.plot_note("豪雨のバス停、近所で塾をやっていたお姉さんと二人切りになった"),
-            w.plot_note("お姉さんは「キスしたことある？」と聞いてきて、キスをしてきた"),
-            w.plot_note("それは全然知らない大人のキスで、目の前が真っ白になった"),
-            w.plot_note("けれどそれから一週間後にお姉さんは自殺した"),
-            w.plot_note("近所の人たちは「そんな子じゃなかったのに」と言った"),
-            w.plot_note("その話を（キスの部分を省いて）妻に話す"),
-            w.plot_note("妻はミントティーを出して、全て分かっているようなことを言う"),
-            "田舎の町特有の情報網",
-            w.plot_note("妻から色々な彼女に関する噂を語られる"),
-            w.plot_note("それは全然知らない面ばかりだったが、妻は全部ただの噂だと"),
-            w.plot_note("「本当の姿なんて大切な人にすら見せないんだから」と言われる"),
-            w.plot_note("でもあの夏のバス停で体験したミントの強烈な匂いは真実だった"),
-            w.plot_note("今年も夏がやってくる"),
-            w.plot_note("あの夏、二人だけの約束をした"),
-            w.plot_note("真実を、大切ではない$natsuにだけ伝えていた"),
-            w.plot_note("その廃屋には、彼女の宝物が隠されている"),
-            w.plot_note("$natsuは彼女の服を取り出して、それを虫干しする"),
-            w.plot_note("夏のあの日、お姉さんと一緒にいた$natsuは女装をさせられていた"),
-            w.plot_note("それがお姉さんの隠れた趣味だった"),
-            w.plot_note("結婚すると言っていたお姉さんはその趣味を諦めることになると悩んでいた"),
-            w.plot_note("今でも誰にも見せずに、ときおり女装をしている"),
-            w.plot_note("あの夏のミントの匂いを、思い出すために"),
+            ep_a_summerday(w),
+            ep_summer_memory(w),
+            ep_lost_summer(w),
             )
 
 
@@ -116,11 +140,23 @@ def chara_note(w: World):
             "・主人公の妻",
             )
 
+def stage_note(w: World):
+    return w.writer_note("場所メモ",
+            "メインの舞台は「地方都市、特に田舎っぽさの残る」",
+            "民家も繁華街もあるけれど、少しいけば雑木林や廃屋があり、過疎化も進む",
+            "バスは時間帯によっては一時間に一本なかったりする",
+            )
+
 def theme_note(w: World):
     return w.writer_note("テーマメモ",
             "見かけによらない、意外な内面を見せつけられた時に脳が理解することを拒否する",
             "本当の姿なんて誰にも見せない。大切な人にも見せない。でも見てもらいたい",
             "そんなアンビバレントな感情を持て余している",
+            "田舎の町特有の、あるいは女子特有の情報網で、そういう話が共有されていた",
+            "知らないこと、知らないところで、勝手にその人の個性が作られてしまっている",
+            "思い出というのは一つの「誰かの妄想」でもある",
+            "自分が、あるいは他人の言葉で形作られたフィクション。それが思い出",
+            "真実とは遠いことも多い",
             )
 
 def motif_note(w: World):
@@ -161,6 +197,7 @@ def main(): # pragma: no cover
             writer_note(w),
             plot_note(w),
             chara_note(w),
+            stage_note(w),
             theme_note(w),
             motif_note(w),
             ch_main(w),
