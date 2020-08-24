@@ -31,7 +31,7 @@ from config import ASSET
 
 # Constant
 TITLE = "ミントの匂いと雨の痕"
-MAJOR, MINOR, MICRO = 0, 3, 0
+MAJOR, MINOR, MICRO = 0, 4, 0
 COPY = "あの夏の出来事は、一生消えない"
 ONELINE = "約8000字の青春恋愛短編。あの夏、豪雨の中でキスをしたお姉さんは自殺した"
 OUTLINE = "真面目で良家のお嬢さんという感じだった近所の塾の先生が、ある夏の豪雨のバス停で、キスをした。そのお姉さんが自殺したと聞いた"
@@ -108,6 +108,13 @@ def ch_main(w: World):
 # Notes
 def writer_note(w: World):
     return w.writer_note("覚書",
+            "夏の思い出、というとやはり「恋愛」に関するものが浮かぶ",
+            "けれどその多くは短い恋であり、切なさが漂うものだと思う",
+            "思い出は少しせつないくらいの方が味があり、楽しいだけのものはフィクションだと似合わない",
+            "今回はストレートに「夏の恋の思い出」をベースとして、そこに多少の秘密要素と青春の苦味、人間の裏の顔をミックスし、",
+            "作品として仕立て上げる",
+            "人間は誰に対しても何かしら秘密を持っている",
+            "あれこれオープンにしなければいけないような風潮のある現代だからこそ、秘密を大事にする、というのは一つの大きな課題となるだろう",
             )
 
 def plot_note(w: World):
@@ -138,6 +145,31 @@ def chara_note(w: World):
             "・主人公の家族。母親と父親、それに妹か何か。祖父母も",
             "・自殺したお姉さんを知る友人か男友達か",
             "・主人公の妻",
+            )
+
+def about_charas(w: World):
+    return (chara_natsu(w),
+            chara_mina(w),
+            chara_kimi(w),
+            )
+
+def chara_natsu(w: World):
+    return w.chara_note("$natsuの履歴書",
+            "山梨の田舎町に生まれる",
+            "両親は役場の職員と、学校の嘱託職員で、兄弟は一人歳の離れた姉がいた",
+            "幼い頃からちやほやされながら、あまり自立心なく育つ",
+            "五歳の頃に近所に越してきた$minaは姉と仲良くなり、それから$natsuともちょくちょく遊ぶようになった",
+            "遊ぶといっても相手をしてもらう程度だ",
+            "個人で塾をやっていた$minaは周囲からの評判もよかったが、$natsuに",
+            # TODO
+            )
+
+def chara_mina(w: World):
+    return w.chara_note("$minaの履歴書",
+            )
+
+def chara_kimi(w: World):
+    return w.chara_note("$kimiの履歴書",
             )
 
 def stage_note(w: World):
@@ -197,6 +229,7 @@ def main(): # pragma: no cover
             writer_note(w),
             plot_note(w),
             chara_note(w),
+            *about_charas(w),
             stage_note(w),
             theme_note(w),
             motif_note(w),
