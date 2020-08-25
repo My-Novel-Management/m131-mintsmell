@@ -10,15 +10,20 @@ ASSET = {
             ('natsu', 'ナツオ', '', 30,(1,1), 'male', '会社員', "me:僕"),
             ("mina", "ミナト", "", 29,(1,1), "female", "塾講師", "me:私"),
             ("kimi", "キミエ", "", 29,(1,1), "female", "高校教師", "me:わたし"),
+            ("sis", "ナツオの姉", "", 21,(1,1), "female", "洋菓子店", "me:私"),
             ),
         "STAGES": (
             # (tag / name / parent / (geometry) / info)
             ("Yamanashi", "山梨", "", (120,50)),
             ("Home", "ナツオの家", "Yamanashi"),
+            ("ParentsHome", "ナツオの実家", "Yamanashi"),
+            ("HerHome", "ミナの家", "Yamanashi"),
             ("Station", "田舎町の駅", "Yamanashi"),
             ("Mall", "商業施設", "Yamanashi"),
             ("Shop", "ナツオの店", "Yamanashi"),
             ("VacantHouse", "廃屋", "Yamanashi"),
+            ("BusStop", "バス停", "Yamanashi"),
+            ("InBus", "バス車内", "Yamanashi"),
             ),
         "DAYS": (
             # (tag / name / month / day / year)
