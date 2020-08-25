@@ -14,7 +14,10 @@ ASSET = {
         "STAGES": (
             # (tag / name / parent / (geometry) / info)
             ("Yamanashi", "山梨", "", (120,50)),
-            ("Home", "ナツオの家", "Tokyo"),
+            ("Home", "ナツオの家", "Yamanashi"),
+            ("Station", "田舎町の駅", "Yamanashi"),
+            ("Mall", "商業施設", "Yamanashi"),
+            ("Shop", "ナツオの店", "Yamanashi"),
             ("VacantHouse", "廃屋", "Yamanashi"),
             ),
         "DAYS": (
