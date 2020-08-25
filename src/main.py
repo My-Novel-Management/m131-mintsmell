@@ -12,7 +12,13 @@ from storybuilder.assets import basic
 from storybuilder.assets import common_rubi
 from config import ASSET
 # import scenes
-# from scenes import xxx
+from scenes import BusStop
+from scenes import HerHome
+from scenes import Home
+from scenes import InBus
+from scenes import Mall
+from scenes import ParentsHome
+from scenes import VacantHouse
 
 
 ################################################################
@@ -50,9 +56,8 @@ RELEASED = (8, 20, 2020)
 # Episodes
 def ep_a_summerday(w: World):
     return w.episode("ある夏の日",
-            "店どうする？→説明に入れ込むか",
-            "家：ミントの草刈りをして、妻に色々言われている",
             "ミントは強く、地下茎で繁殖するので、隣の家までも容易に増殖してしまう",
+            Home.mint(w),
             w.plot_setup("結婚して三年目の夫婦"),
             w.plot_setup("$natsuは庭でミントを育てていた"),
             w.plot_setup("田舎の複合商業施設内の服屋を経営している"),
@@ -63,19 +68,18 @@ def ep_a_summerday(w: World):
 
 def ep_summer_memory(w: World):
     return w.episode('あの夏の出来事',
-            "実家（回想）：$minaとの出会い",
+            ParentsHome.meet_mina(w),
             w.plot_develop("$natsuは妻に夏の出来事を語る（嘘を混ぜて）"),
             w.plot_develop("中学の夏、塾のお姉さんとキスをしたことがショックだったと話す"),
-            "彼女の家（回想）：塾をやっている一戸建てで、教わる",
+            HerHome.kindness(w),
             w.plot_develop("$minaの塾で色々と教わる"),
-            "駅前（回想）：駅で待ち合わせ",
             w.plot_develop("夏休み、$minaと二人で出かけた"),
-            "モール（回想）：デート",
-            "駅前のバス停（回想）：キス",
+            Mall.first_date(w),
+            BusStop.first_kiss(w),
             w.plot_develop("そのお姉さんは自殺してしまった"),
-            "家（回想戻り）：話の後始末",
             w.plot_develop("その話を妻にすると、彼女は「色々と噂があった」と前置きし、",
                 "その「いろいろ」を語ってくれた"),
+            Home.after_talk(w),
             "田舎の町特有の情報網",
             w.plot_develop("大人たちは誰も彼女の本当の姿を理解していなかったんじゃないか、と言い出す妻"),
             w.plot_turnpoint("妻は当時の噂を知っていたと告白した"),
@@ -84,37 +88,15 @@ def ep_summer_memory(w: World):
 
 def ep_lost_summer(w: World):
     return w.episode("夏よ、さようなら",
-            # TODO: ここからシーン分け
-            "駅前のバス停：処分に向かう",
             w.plot_resolve("$natsuは休日に一人、廃屋を訪れる"),
-            w.plot_note("$natsuは妻が本当は全部知っているのかもしれないと思い、恐れつつも実家があった田舎町に向かう"),
-            w.plot_note("妻には「今年で最後だ」と言っておいた"),
-            w.plot_note("駅前からバスに乗る。一時間に一本も来ない田舎だ"),
-            "バス車内：変わりゆく街並み",
-            w.plot_note("駅前の風景は随分変わってしまって、歯抜けのように廃屋が目立つ"),
-            w.plot_note("あの頃から変わらずに「ソフトクリーム」と暖簾を出す米屋はそのままだった"),
+            BusStop.last_summer(w),
+            InBus.changing_sites(w),
             w.plot_resolve("廃屋には$minaに女装ごっこをさせられた衣装が隠してあり、それを時折虫干ししていた"),
-            w.plot_note("$minaとよく遊んだ「隠れ家」は、彼女の叔母の土地らしいが、",
-                "既に草だらけになり、廃屋になっていた"),
-            "廃屋：服の処分",
-            w.plot_note("売地となっているそこに侵入し、廃屋の中に向かう"),
-            w.plot_note("廃屋の一室、ドレスルーム。いくつもの姿見が並ぶ。そこだけ誰かが住んでいるみたいに掃除されている"),
-            w.plot_note("衣装ケースに彼女に買ってもらった服や、$minaの小さい頃の服が仕舞われていた"),
-            w.plot_note("$natsuは毎年ここにやってきてそれらを虫干ししていた"),
-            w.plot_note("あの豪雨の日も、バス停ではなく二人はここにいた"),
-            w.plot_note("$natsuは$minaのセーラー服を着せられ、髪を梳かしてもらっていた"),
-            w.plot_note("女装した少年を愛でる。それが$minaの隠れた趣味で、",
-                "結婚することになってそれがもうできなくなることに苦しんでいた"),
-            w.plot_note("あの日キスをしながら「これが最後だね」と寂しそうに笑っていた"),
-            w.plot_note("それから一日として合わず、$natsuはたまたま風邪を引いて塾に行けなかった"),
-            w.plot_note("一週間後、$minaは自殺した"),
+            VacantHouse.her_hideout(w),
+            VacantHouse.secret_room(w),
             w.plot_resolve("$natsuは当時$minaと女装ごっこをしていた秘密（セーラー服）を燃やして処分した"),
-            w.plot_note("$natsuはセーラー服を着た自分を見ていた"),
-            w.plot_note("それを脱ぎ、庭に出て燃やす"),
-            w.plot_note("庭はミントで溢れていた"),
-            w.plot_note("ここからミントをもらい、自宅の庭に植えたのだ"),
-            w.plot_note("全ての服を燃やして、$minaの思い出を消し去った"),
-            w.plot_note("ミントの匂いが酷くて、$natsuは吐いた"),
+            VacantHouse.the_summer_truth(w),
+            VacantHouse.goodbye_summer(w),
             )
 
 

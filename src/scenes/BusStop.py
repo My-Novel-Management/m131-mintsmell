@@ -19,3 +19,10 @@ def first_kiss(w: World):
             w.plot_note("けれどそれから一週間後にお姉さんは自殺した"),
             )
 
+
+def last_summer(w: World):
+    return w.scene("最後の夏",
+            w.plot_note("$natsuは妻が本当は全部知っているのかもしれないと思い、恐れつつも実家があった田舎町に向かう"),
+            w.plot_note("妻には「今年で最後だ」と言っておいた"),
+            w.plot_note("駅前からバスに乗る。一時間に一本も来ない田舎だ"),
+            )

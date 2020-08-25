@@ -12,6 +12,7 @@ from storybuilder.builder.world import World
 ## scenes
 def meet_mina(w: World):
     return w.scene('$minaとの出会い',
+            w.cmd.change_stage("ParentsHome"),
             w.plot_note("$natsuは妻にある夏の出来事を話して聞かせる"),
             w.plot_note("$natsuには姉がいた"),
             w.plot_note("結婚式の時に見かけただけで特に関わり合いがない程度の関係だ"),

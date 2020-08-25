@@ -12,6 +12,9 @@ from storybuilder.builder.world import World
 ## scenes
 def mint(w: World):
     return w.scene('庭のミント',
+            w.cmd.change_camera("natsu"),
+            w.cmd.change_stage("Home"),
+            w.cmd.change_time("afternoon"),
             w.plot_note("隣からうちでもミントが生えて邪魔と言われたと妻に言われてしまう"),
             w.plot_note("結婚を機に一戸建てを購入した。どうしても庭が欲しかった"),
             w.plot_note("地方都市の郊外の商業施設の、服屋を営んでいる"),
@@ -27,6 +30,7 @@ def mint(w: World):
 
 def after_talk(w: World):
     return w.scene("思い出語りを聞いた後で",
+            w.cmd.change_stage("Home"),
             w.plot_note("近所の人たちは「そんな子じゃなかったのに」と言った"),
             w.plot_note("妻はミントティーを出して、全て分かっているようなことを言う"),
             w.plot_note("妻から色々な彼女に関する噂を語られる"),
