@@ -12,11 +12,27 @@ from storybuilder.builder.world import World
 ## scenes
 def first_kiss(w: World):
     na = w.get("natsu")
+    mina = w.get("mina")
     return w.scene('はじめてのキス',
             w.cmd.change_stage("BusStop"),
             w.plot_note("ある豪雨の日、バス停でたまたま$minaと二人切りになった"),
             w.plot_note("お姉さんは「キスしたことある？」と聞いてきて、キスをしてきた"),
             w.plot_note("それは全然知らない大人のキスで、目の前が真っ白になった"),
+            na.be(),
+            mina.be(),
+            "ずっと妻に思い出として語っているてい（ただし嘘を交えている）",
+            na.do("暑い夏の日だった"),
+            na.do("歩いていて偶然出くわした$minaと話しながら、バス停で二人、バスを待っていた"),
+            na.do("と、雨が降り始める。それもスコールのような土砂降り"),
+            na.do("すぐに周囲は見えなくなる"),
+            mina.talk("すごい雨"),
+            mina.talk("学校はどう？　楽しい？"),
+            na.do("そんな他愛ない会話が続く"),
+            mina.talk("ねえ、キスしたこと、ある？"),
+            na.do("突然お姉さんはそんなことを言ってきた"),
+            na.do("当時まだそういうものへの関心が全くなかった訳じゃないが、身の回りでは全然なく、",
+                ""),
+            # TODO
             w.br(),
             w.plot_note("けれどそれから一週間後にお姉さんは自殺した"),
             )
