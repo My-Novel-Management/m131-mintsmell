@@ -11,6 +11,8 @@ from storybuilder.builder.world import World
 
 ## scenes
 def mint(w: World):
+    na = w.get("natsu")
+    kimi = w.get("kimi")
     return w.scene('庭のミント',
             w.cmd.change_camera("natsu"),
             w.cmd.change_stage("Home"),
@@ -29,6 +31,8 @@ def mint(w: World):
 
 
 def after_talk(w: World):
+    na = w.get("natsu")
+    kimi = w.get("kimi")
     return w.scene("思い出語りを聞いた後で",
             w.cmd.change_stage("Home"),
             w.plot_note("近所の人たちは「そんな子じゃなかったのに」と言った"),
@@ -37,4 +41,12 @@ def after_talk(w: World):
             w.plot_note("それは全然知らない面ばかりだったが、妻は全部ただの噂だと"),
             w.plot_note("「本当の姿なんて大切な人にすら見せないんだから」と言われる"),
             w.plot_note("妻は「ところでその日、バスに乗ってどこに行こうとしてたの？」と尋ねる"),
+            na.be(),
+            kimi.be(),
+            na.do("思い出を話し終えた"),
+            na.do("外の雨の勢いは弱まり、涼しいくらいの小雨に変わっている"),
+            kimi.talk("それで？"),
+            na.talk("分からないことって、いつまでも人生のどこかに引っかかっていて、",
+                "それをこういうタイミングでふと思い出すってこと、ないか？"),
+            kimi.talk(""),
             )
