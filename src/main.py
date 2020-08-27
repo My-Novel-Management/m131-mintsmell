@@ -18,6 +18,7 @@ from scenes import Home
 from scenes import InBus
 from scenes import Mall
 from scenes import ParentsHome
+from scenes import Station
 from scenes import VacantHouse
 
 
@@ -74,6 +75,7 @@ def ep_summer_memory(w: World):
             HerHome.kindness(w),
             w.plot_develop("$minaの塾で色々と教わる"),
             w.plot_develop("夏休み、$minaと二人で出かけた"),
+            Station.first_date(w),
             Mall.first_date(w),
             BusStop.first_kiss(w),
             w.plot_develop("そのお姉さんは自殺してしまった"),
