@@ -107,6 +107,7 @@ def ch_main(w: World):
             ep_a_summerday(w),
             ep_summer_memory(w),
             ep_lost_summer(w),
+            w.symbol("（了）"),
             )
 
 
