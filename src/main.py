@@ -38,7 +38,7 @@ from scenes import VacantHouse
 
 # Constant
 TITLE = "ミントの匂いと雨の痕"
-MAJOR, MINOR, MICRO = 0, 8, 0
+MAJOR, MINOR, MICRO = 0, 9, 0
 COPY = "あの夏の出来事は、一生消えない"
 ONELINE = "約8000字の青春恋愛短編。あの夏、豪雨の中でキスをしたお姉さんは自殺した"
 OUTLINE = "真面目で良家のお嬢さんという感じだった近所の塾の先生が、ある夏の豪雨のバス停で、キスをした。そのお姉さんが自殺したと聞いた"
