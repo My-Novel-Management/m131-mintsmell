@@ -12,6 +12,7 @@ ASSET = {
             ("kimi", "キミエ", "", 29,(1,1), "female", "高校教師", "me:わたし"),
             ("sis", "ユミ", "", 21,(1,1), "female", "洋菓子店", "me:私"),
             ("deliver", "配達員", "", 25,(1,1), "male", "配達"),
+            ("yoshi", "ヨシムラ", "", 40,(1,1), "male", "家具屋"),
             ),
         "STAGES": (
             # (tag / name / parent / (geometry) / info)
