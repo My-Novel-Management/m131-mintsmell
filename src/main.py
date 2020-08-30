@@ -76,7 +76,7 @@ def ep_summer_memory(w: World):
             w.plot_develop("$minaの塾で色々と教わる"),
             w.plot_develop("夏休み、$minaと二人で出かけた"),
             Station.first_date(w),
-            Mall.first_date(w),
+            Mall.first_date(w).omit(),
             BusStop.first_kiss(w),
             w.plot_develop("そのお姉さんは自殺してしまった"),
             w.plot_develop("その話を妻にすると、彼女は「色々と噂があった」と前置きし、",
