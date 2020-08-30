@@ -38,10 +38,10 @@ from scenes import VacantHouse
 
 # Constant
 TITLE = "ミントの匂いと雨の痕"
-MAJOR, MINOR, MICRO = 0, 8, 0
-COPY = "あの夏の出来事は、一生消えない"
-ONELINE = "約8000字の青春恋愛短編。あの夏、豪雨の中でキスをしたお姉さんは自殺した"
-OUTLINE = "真面目で良家のお嬢さんという感じだった近所の塾の先生が、ある夏の豪雨のバス停で、キスをした。そのお姉さんが自殺したと聞いた"
+MAJOR, MINOR, MICRO = 1, 0, 0
+COPY = "あの夏の出来事は、強烈なミントの匂いがした"
+ONELINE = "約8000字のヒューマンドラマ短編。あの夏、豪雨の中でしたお姉さんとのキスのことを思い出す"
+OUTLINE = "約8000字の短編。真面目で良家のお嬢さんという感じだった近所の塾の先生が、ある夏の豪雨のバス停で、キスをしてきた。その思い出が、未だに男のの心に引っかかっていた。"
 THEME = "理解できなかったことが思い出として刻まれ続ける"
 GENRE = "恋愛／青春／文学"
 TARGET = "10-30years"
@@ -51,7 +51,7 @@ CAUTION = ""
 NOTE = ""
 SITES = ["エブリスタ", "小説家になろう", "ノベルアッププラス", "カクヨム"]
 TAGS = ["ヒューマンドラマ", "恋愛", "片思い", "年上の女"]
-RELEASED = (8, 20, 2020)
+RELEASED = (8, 30, 2020)
 
 
 # Episodes
@@ -76,7 +76,7 @@ def ep_summer_memory(w: World):
             w.plot_develop("$minaの塾で色々と教わる"),
             w.plot_develop("夏休み、$minaと二人で出かけた"),
             Station.first_date(w),
-            Mall.first_date(w),
+            Mall.first_date(w).omit(),
             BusStop.first_kiss(w),
             w.plot_develop("そのお姉さんは自殺してしまった"),
             w.plot_develop("その話を妻にすると、彼女は「色々と噂があった」と前置きし、",
@@ -94,8 +94,8 @@ def ep_lost_summer(w: World):
             BusStop.last_summer(w),
             InBus.changing_sites(w),
             w.plot_resolve("廃屋には$minaに女装ごっこをさせられた衣装が隠してあり、それを時折虫干ししていた"),
-            VacantHouse.her_hideout(w),
-            VacantHouse.secret_room(w),
+            VacantHouse.her_hideout(w).omit(),
+            VacantHouse.secret_room(w).omit(),
             w.plot_resolve("$natsuは当時$minaと女装ごっこをしていた秘密（セーラー服）を燃やして処分した"),
             VacantHouse.the_summer_truth(w),
             VacantHouse.goodbye_summer(w),
@@ -107,6 +107,7 @@ def ch_main(w: World):
             ep_a_summerday(w),
             ep_summer_memory(w),
             ep_lost_summer(w),
+            w.symbol("（了）"),
             )
 
 
